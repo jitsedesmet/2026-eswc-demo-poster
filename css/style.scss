@@ -94,12 +94,19 @@ pre, code {
 header {
   grid-column: 1 / -1;
   grid-row: 1 / span 4;
+  display: flex;
+  flex-direction: row;
   font-weight: bold;
   background: var(--color-prim);
   font-size: var(--size-huge);
+  line-height: 0.8em;
   text-align: center;
   padding: 0.5em;
   color: var(--color-ter);
+}
+
+header .sub {
+  font-size: 0.7em;
 }
 
 #requirements {
