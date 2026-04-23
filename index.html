@@ -26,9 +26,9 @@
         <section id="motivation">
             <div class="section-title"><span class="nicon">⚠</span> Problem</div>
             <ul>
-                <li>SPARQL has diverged into <strong>many dialects</strong>: 1.1, 1.2, GeoSPARQL, ADJUST, LATERAL — each needs different parse logic</li>
-                <li><strong>Monolithic parsers</strong> require long-lived forks that break upstream compatibility over time</li>
-                <li><strong>Comunica's</strong> modular actor architecture needs an equally composable language layer to unlock new query features end-to-end</li>
+                <li><span>SPARQL is <strong>fragmenting</strong>: 1.1, 1.2, GeoSPARQL, ADJUST, LATERAL — every variant needs different parsing logic</span></li>
+                <li><span><strong>Monolithic parsers</strong> force long-lived forks that break upstream compatibility</span></li>
+                <li><span><strong>Comunica's</strong> modular engine needs an equally composable language layer end-to-end</span></li>
             </ul>
             <div class="stat-row">
                 <div class="stat blue">
@@ -54,8 +54,7 @@
         <!-- ═══ TAKE-HOME ════════════════════════════════════════════════════ -->
         <div id="take-home">
             <span class="cicon">💡</span>
-            Compose your SPARQL parser and query engine on-the-fly —
-            <strong>no fork, no rewrite, no breaking change.</strong>
+            <span>Compose your SPARQL parser and query engine on-the-fly — <strong>no fork, no rewrite, no breaking change.</strong></span>
         </div>
 
         <!-- ═══ CODE SECTION ════════════════════════════════════════════════ -->
@@ -75,18 +74,18 @@
                     <div class="explain-card green">
                         <div class="card-check nicon">✔</div>
                         <div>
-                            <div class="card-title">Language tooling composability</div>
+                            <div class="card-title">Language composability</div>
                             <div>Rules are named first-class objects</div>
-                            <div class="sub">↳ add · replace · remove per builder</div>
+                            <div class="sub">↳ add, replace or remove any rule</div>
                             <div class="sub">↳ no fork, no rewrite required</div>
                         </div>
                     </div>
                     <div class="explain-card blue">
                         <div class="card-check nicon">✔</div>
                         <div>
-                            <div class="card-title">Query engine composability</div>
-                            <div>Comunica actors wired via Components.js</div>
-                            <div class="sub">↳ parser and engine always stay aligned</div>
+                            <div class="card-title">Engine composability</div>
+                            <div>Comunica actors via Components.js</div>
+                            <div class="sub">↳ parser &amp; engine always aligned</div>
                             <div class="sub">↳ features toggle end-to-end</div>
                         </div>
                     </div>
@@ -98,20 +97,13 @@
         <section id="features">
             <div class="section-title amber"><span class="nicon">⚡</span> Traqula capabilities</div>
             <ul>
-                <li>Full SPARQL 1.1 &mdash;
-                    <span class="pill">parse</span>
-                    <span class="pill">generate</span>
-                    <span class="pill">transform</span>
-                </li>
-                <li>SPARQL 1.2 as an incremental delta — <strong>26 rule changes</strong></li>
-                <li>ADJUST function extension, compatible with Oxigraph</li>
-                <li>LATERAL join as an opt-in rule extension</li>
-                <li>Builder pattern — clone &amp; extend any existing variant</li>
-                <li>Open algebraic model for new Comunica operations</li>
-                <li>
-                    <img class="inline-logo" src="/img/logos/comunica-word.svg" alt="Comunica"/>
-                    actors adapt automatically via Components.js
-                </li>
+                <li><span>Full SPARQL 1.1 — <span class="pill">parse</span> <span class="pill">generate</span> <span class="pill">transform</span></span></li>
+                <li><span>SPARQL 1.2 as incremental delta — <strong>26 rule changes</strong></span></li>
+                <li><span>ADJUST extension, compatible with Oxigraph</span></li>
+                <li><span>LATERAL join as an opt-in rule extension</span></li>
+                <li><span>Builder pattern — clone &amp; extend any variant</span></li>
+                <li><span>Open algebraic model for new Comunica operations</span></li>
+                <li><span><img class="inline-logo" src="/img/logos/comunica-word.svg" alt="Comunica"/> actors adapt via Components.js</span></li>
             </ul>
         </section>
 
@@ -119,11 +111,11 @@
         <section id="demo">
             <div class="section-title"><span class="nicon">▶</span> Demo walkthrough</div>
             <ol>
-                <li>Start from the <strong>SPARQL 1.1</strong> baseline</li>
-                <li>Toggle <strong>SPARQL 1.2</strong>, ADJUST, or LATERAL on/off</li>
-                <li>Inspect the auto-generated <strong>Traqula</strong> builder config</li>
-                <li>Inspect the auto-generated <strong>Components.js</strong> wiring</li>
-                <li>Execute live <strong>federated</strong> SPARQL queries</li>
+                <li><span>Start from the <strong>SPARQL 1.1</strong> baseline</span></li>
+                <li><span>Toggle <strong>SPARQL 1.2</strong>, ADJUST, or LATERAL</span></li>
+                <li><span>Inspect the generated <strong>Traqula</strong> builder config</span></li>
+                <li><span>Inspect the generated <strong>Components.js</strong> wiring</span></li>
+                <li><span>Execute live <strong>federated</strong> SPARQL queries</span></li>
             </ol>
         </section>
 
