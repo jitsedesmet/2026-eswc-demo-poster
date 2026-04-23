@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="240" viewBox="0 0 200 240" role="img" aria-label="Query engine composability stack diagram">
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="252" viewBox="0 0 200 252" role="img" aria-label="Query engine composability stack diagram">
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#005eae"/>
     </marker>
     <style>
-      .b1{fill:#fff;stroke:#005eae;stroke-width:3;rx:8;ry:8}
-      .b2{fill:#fff7ea;stroke:#fbba64;stroke-width:3;rx:8;ry:8}
-      .b3{fill:#fff;stroke:#9c0510;stroke-width:3;rx:8;ry:8}
-      .b4{fill:#fff;stroke:#2e7d32;stroke-width:3;rx:16;ry:16}
-      .t{font-family:Inter,Arial,sans-serif;font-size:11px;font-weight:700;fill:#003f76}
-      .s{font-family:Inter,Arial,sans-serif;font-size:9px;fill:#003f76}
-      .a{stroke:#005eae;stroke-width:2.5;fill:none;marker-end:url(#arrow)}
+      .t{font-family:Inter,Arial,sans-serif;font-size:11px;font-weight:700}
+      .s{font-family:Inter,Arial,sans-serif;font-size:9px}
+      .a{stroke:#005eae;stroke-width:2;fill:none;marker-end:url(#arr)}
+      .lbl{font-family:Inter,Arial,sans-serif;font-size:8px;fill:#555;text-anchor:middle}
     </style>
   </defs>
 
-  <rect class="b1" x="40" y="8" width="120" height="40"/>
-  <text class="t" x="100" y="24" text-anchor="middle">Feature toggles</text>
-  <text class="s" x="100" y="36" text-anchor="middle">SPARQL 1.2 / ADJUST / LATERAL</text>
+  <!-- Row 1: User / App -->
+  <rect x="30" y="6" width="140" height="40" rx="8" fill="white" stroke="#005eae" stroke-width="3.5"/>
+  <text class="t" x="100" y="23" text-anchor="middle" fill="#003f76">User / App</text>
+  <text class="s" x="100" y="37" text-anchor="middle" fill="#003f76">feature toggles: 1.2 · ADJUST · LATERAL</text>
 
-  <rect class="b2" x="40" y="66" width="120" height="40"/>
-  <text class="t" x="100" y="82" text-anchor="middle" fill="#8a5a11">Traqula config</text>
-  <text class="s" x="100" y="94" text-anchor="middle">lexer, parser, generator, transformers</text>
+  <!-- Arrow down, label "config" -->
+  <path class="a" d="M 100 46 L 100 62"/>
+  <text class="lbl" x="100" y="57">config</text>
 
-  <rect class="b3" x="40" y="124" width="120" height="40"/>
-  <text class="t" x="100" y="140" text-anchor="middle" fill="#7f0010">Comunica components</text>
-  <text class="s" x="100" y="152" text-anchor="middle">engine modules via Components.js</text>
+  <!-- Row 2: Traqula Builder -->
+  <rect x="20" y="64" width="160" height="44" rx="8" fill="#fff7ea" stroke="#fbba64" stroke-width="3.5"/>
+  <text class="t" x="100" y="82" text-anchor="middle" fill="#8a5a11">Traqula Builder</text>
+  <text class="s" x="100" y="95" text-anchor="middle" fill="#8a5a11">parser · generator · transformers</text>
+  <text class="s" x="100" y="105" text-anchor="middle" fill="#8a5a11">named rules, composable</text>
 
-  <rect class="b4" x="45" y="184" width="110" height="44"/>
-  <text class="t" x="100" y="201" text-anchor="middle" fill="#1f6b2a">Query execution</text>
-  <text class="s" x="100" y="214" text-anchor="middle">federated queries with</text>
-  <text class="s" x="100" y="225" text-anchor="middle">aligned parser + engine</text>
+  <!-- Arrow down, label "actors" -->
+  <path class="a" d="M 100 108 L 100 124"/>
+  <text class="lbl" x="100" y="119">actors</text>
 
-  <path class="a" d="M 100 48 L 100 66"/>
-  <path class="a" d="M 100 106 L 100 124"/>
-  <path class="a" d="M 100 164 L 100 184"/>
+  <!-- Row 3: Comunica Engine -->
+  <rect x="20" y="126" width="160" height="44" rx="8" fill="white" stroke="#9c0510" stroke-width="3.5"/>
+  <text class="t" x="100" y="144" text-anchor="middle" fill="#7f0010">Comunica Engine</text>
+  <text class="s" x="100" y="157" text-anchor="middle" fill="#7f0010">modular actor pipeline</text>
+  <text class="s" x="100" y="167" text-anchor="middle" fill="#7f0010">Components.js wiring</text>
 
-  <text class="s" x="8" y="89">language tooling</text>
-  <path class="a" d="M 35 86 L 40 86"/>
+  <!-- Arrow down, label "SPARQL results" -->
+  <path class="a" d="M 100 170 L 100 186"/>
+  <text class="lbl" x="100" y="181">queries</text>
 
-  <text class="s" x="163" y="147">engine wiring</text>
-  <path class="a" d="M 160 145 L 165 145"/>
+  <!-- Row 4: Trapezoid — "The Web" (RDF endpoints) -->
+  <path d="M 10 188 L 190 188 L 175 228 L 25 228 Z" fill="#e8f5e9" stroke="#2e7d32" stroke-width="3.5"/>
+  <text class="t" x="100" y="206" text-anchor="middle" fill="#1b5e20">The Web</text>
+  <text class="s" x="100" y="219" text-anchor="middle" fill="#1b5e20">RDF-over-HTTP · SPARQL endpoints</text>
+
+  <!-- Side annotations -->
+  <text class="lbl" x="8" y="92" text-anchor="middle" transform="rotate(-90,8,92)" fill="#fbba64">language layer</text>
+  <text class="lbl" x="192" y="150" text-anchor="middle" transform="rotate(90,192,150)" fill="#9c0510">query layer</text>
 </svg>
