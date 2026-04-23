@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="240" viewBox="0 0 200 240" role="img" aria-label="Query engine composability stack diagram">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#005eae"/>
+    </marker>
+    <style>
+      .b1{fill:#fff;stroke:#005eae;stroke-width:3;rx:8;ry:8}
+      .b2{fill:#fff7ea;stroke:#fbba64;stroke-width:3;rx:8;ry:8}
+      .b3{fill:#fff;stroke:#9c0510;stroke-width:3;rx:8;ry:8}
+      .b4{fill:#fff;stroke:#2e7d32;stroke-width:3;rx:16;ry:16}
+      .t{font-family:Inter,Arial,sans-serif;font-size:11px;font-weight:700;fill:#003f76}
+      .s{font-family:Inter,Arial,sans-serif;font-size:9px;fill:#003f76}
+      .a{stroke:#005eae;stroke-width:2.5;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+
+  <rect class="b1" x="40" y="8" width="120" height="40"/>
+  <text class="t" x="100" y="24" text-anchor="middle">Feature toggles</text>
+  <text class="s" x="100" y="36" text-anchor="middle">SPARQL 1.2 / ADJUST / LATERAL</text>
+
+  <rect class="b2" x="40" y="66" width="120" height="40"/>
+  <text class="t" x="100" y="82" text-anchor="middle" fill="#8a5a11">Traqula config</text>
+  <text class="s" x="100" y="94" text-anchor="middle">lexer, parser, generator, transformers</text>
+
+  <rect class="b3" x="40" y="124" width="120" height="40"/>
+  <text class="t" x="100" y="140" text-anchor="middle" fill="#7f0010">Comunica components</text>
+  <text class="s" x="100" y="152" text-anchor="middle">engine modules via Components.js</text>
+
+  <rect class="b4" x="45" y="184" width="110" height="44"/>
+  <text class="t" x="100" y="201" text-anchor="middle" fill="#1f6b2a">Query execution</text>
+  <text class="s" x="100" y="214" text-anchor="middle">federated queries with</text>
+  <text class="s" x="100" y="225" text-anchor="middle">aligned parser + engine</text>
+
+  <path class="a" d="M 100 48 L 100 66"/>
+  <path class="a" d="M 100 106 L 100 124"/>
+  <path class="a" d="M 100 164 L 100 184"/>
+
+  <text class="s" x="8" y="89">language tooling</text>
+  <path class="a" d="M 35 86 L 40 86"/>
+
+  <text class="s" x="163" y="147">engine wiring</text>
+  <path class="a" d="M 160 145 L 165 145"/>
+</svg>
