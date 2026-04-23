@@ -1,0 +1,79 @@
+<svg viewBox="0 0 400 265" xmlns="http://www.w3.org/2000/svg" font-family="Inter, 'Inter Tight', sans-serif">
+  <defs>
+    <marker id="arr-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 Z" fill="#005eae"/>
+    </marker>
+    <marker id="arr-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 Z" fill="#bbb"/>
+    </marker>
+  </defs>
+
+  <!-- ===== LEFT: Feature Selection ===== -->
+  <text x="5" y="18" font-size="11" font-weight="bold" fill="#005eae">Feature Selection</text>
+
+  <!-- SPARQL 1.1 (always on) -->
+  <rect x="5" y="25" width="170" height="42" rx="6" fill="#d4e5f5" stroke="#005eae" stroke-width="1.5"/>
+  <circle cx="22" cy="46" r="8" fill="#009926"/>
+  <text x="22" y="50" text-anchor="middle" font-size="10" fill="white" font-weight="bold">✓</text>
+  <text x="36" y="42" font-size="10" font-weight="bold" fill="#005eae">SPARQL 1.1</text>
+  <text x="36" y="57" font-size="8.5" fill="#005eae">baseline (always active)</text>
+
+  <!-- SPARQL 1.2 (on) -->
+  <rect x="5" y="75" width="170" height="42" rx="6" fill="#d4e5f5" stroke="#005eae" stroke-width="1.5"/>
+  <circle cx="22" cy="96" r="8" fill="#009926"/>
+  <text x="22" y="100" text-anchor="middle" font-size="10" fill="white" font-weight="bold">✓</text>
+  <text x="36" y="92" font-size="10" font-weight="bold" fill="#005eae">SPARQL 1.2</text>
+  <text x="36" y="107" font-size="8.5" fill="#005eae">RDF-star, reification</text>
+
+  <!-- ADJUST (on) -->
+  <rect x="5" y="125" width="170" height="42" rx="6" fill="#d4e5f5" stroke="#005eae" stroke-width="1.5"/>
+  <circle cx="22" cy="146" r="8" fill="#009926"/>
+  <text x="22" y="150" text-anchor="middle" font-size="10" fill="white" font-weight="bold">✓</text>
+  <text x="36" y="142" font-size="10" font-weight="bold" fill="#005eae">ADJUST function</text>
+  <text x="36" y="157" font-size="8.5" fill="#005eae">date/time built-in</text>
+
+  <!-- LATERAL (off) -->
+  <rect x="5" y="175" width="170" height="42" rx="6" fill="#f0f0f0" stroke="#ccc" stroke-width="1.5"/>
+  <circle cx="22" cy="196" r="8" fill="#ccc"/>
+  <text x="22" y="200" text-anchor="middle" font-size="10" fill="#999" font-weight="bold">✗</text>
+  <text x="36" y="192" font-size="10" font-weight="bold" fill="#bbb">LATERAL</text>
+  <text x="36" y="207" font-size="8.5" fill="#bbb">not selected</text>
+
+  <text x="5" y="240" font-size="8.5" fill="#005eae" font-style="italic">Any combination is valid — mix as needed</text>
+
+  <!-- ===== CENTER: Arrows ===== -->
+  <line x1="179" y1="46" x2="209" y2="46" stroke="#005eae" stroke-width="1.5" marker-end="url(#arr-c)"/>
+  <line x1="179" y1="96" x2="209" y2="96" stroke="#005eae" stroke-width="1.5" marker-end="url(#arr-c)"/>
+  <line x1="179" y1="146" x2="209" y2="146" stroke="#005eae" stroke-width="1.5" marker-end="url(#arr-c)"/>
+  <line x1="179" y1="196" x2="209" y2="196" stroke="#bbb" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-g)"/>
+
+  <!-- Components.js label -->
+  <text x="194" y="235" text-anchor="middle" font-size="7.5" fill="#005eae">Components.js</text>
+  <text x="194" y="246" text-anchor="middle" font-size="7.5" fill="#005eae">config</text>
+
+  <!-- ===== RIGHT: Actor Configuration ===== -->
+  <text x="215" y="18" font-size="11" font-weight="bold" fill="#005eae">Actor Configuration</text>
+
+  <!-- SPARQL 1.1 Actors (on) -->
+  <rect x="215" y="25" width="180" height="42" rx="6" fill="#005eae"/>
+  <text x="305" y="44" text-anchor="middle" font-size="10" fill="white" font-weight="bold">SPARQL 1.1 Actors</text>
+  <text x="305" y="59" text-anchor="middle" font-size="8.5" fill="white" opacity="0.85">Join · BGP · Filter · Sort ···</text>
+
+  <!-- SPARQL 1.2 Actors (on) -->
+  <rect x="215" y="75" width="180" height="42" rx="6" fill="#005eae"/>
+  <text x="305" y="94" text-anchor="middle" font-size="10" fill="white" font-weight="bold">SPARQL 1.2 Actors</text>
+  <text x="305" y="109" text-anchor="middle" font-size="8.5" fill="white" opacity="0.85">RDF-star · Reification ···</text>
+
+  <!-- ADJUST Actor (on) -->
+  <rect x="215" y="125" width="180" height="42" rx="6" fill="#005eae"/>
+  <text x="305" y="144" text-anchor="middle" font-size="10" fill="white" font-weight="bold">ADJUST Actor</text>
+  <text x="305" y="159" text-anchor="middle" font-size="8.5" fill="white" opacity="0.85">Date/time built-in evaluation</text>
+
+  <!-- Lateral Actor (off / grayed) -->
+  <rect x="215" y="175" width="180" height="42" rx="6" fill="#ddd" stroke="#ccc" stroke-width="1"/>
+  <text x="305" y="194" text-anchor="middle" font-size="10" fill="#999" font-weight="bold">Lateral Actor</text>
+  <text x="305" y="209" text-anchor="middle" font-size="8.5" fill="#aaa">excluded from config</text>
+
+  <text x="215" y="235" font-size="9" fill="#005eae">● Swap actors independently</text>
+  <text x="215" y="248" font-size="9" fill="#005eae">● Config: npm install + config.jsonld</text>
+</svg>

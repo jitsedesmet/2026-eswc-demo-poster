@@ -11,101 +11,95 @@
       typeof="schema:Poster">
 <div id="poster-wrapper">
     <div id="app">
-        <header class="mtitle" property="schema:name" style="font-size: 1.7em;">
-            A State-Based <span style="color: var(--color-sec)">Add-Wins CRDT</span> for <br> <span
-                style="color: var(--color-sec)">RDF 1.2</span> Datastores
+
+        <header property="schema:name">
+            Demonstration of <span class="hl">Composable</span> SPARQL Parsing and Query Execution<br>
+            with <span class="hl">Traqula</span> and <span class="hl">Comunica</span>
+            <div class="authors">Jitse De Smet &amp; Ruben Taelman · IDLab, Ghent University – imec</div>
         </header>
 
-        <div id="requirements">
-            <div class="title">Requirements</div>
+        <div id="motivation">
+            <div class="title">Motivation</div>
             <ul>
-                <li>Interact with shared Knowledge Graphs and decentralized data ecosystems through SPARQL</li>
-                <li>Serving CRDT-aware and non-aware clients</li>
-                <li>Heterogeneous interfaces supported by minimizing requirements</li>
+                <li>SPARQL is increasingly diverse: SPARQL 1.1, SPARQL 1.2 (RDF-star), engine-specific extensions (ADJUST, LATERAL…)</li>
+                <li>Existing parsers are <strong>monolithic</strong> — extension requires long-term forks or complex conditional logic</li>
+                <li>Query engines must match parser capabilities — currently a <strong>manual, error-prone</strong> process</li>
+            </ul>
+            <div class="title" style="margin-top: 0.5em">Goal</div>
+            <ul>
+                <li>Parsing pipelines that can be <strong>composed and extended</strong> incrementally from named rule objects</li>
+                <li>Query engines <strong>configurable</strong> to match the chosen language features</li>
             </ul>
         </div>
 
-        <object id="system-img" data="/img/rdf-crdt-system.svg" type="image/svg+xml" role="img"
-                aria-label="Two agents communicating with two datastores.
-                The first datastore is exposed through an LDP interface while the second is exposed through a TPF interface.
-                The first agents communicates with both datastores while the second agent communicates only with the second datastore."
-        >
-        </object>
+        <div id="approach">
+            <div class="title">Two Modular Frameworks</div>
+            <div class="approach-item">
+                <span class="badge">Traqula</span>
+                <span>Modular SPARQL <strong>parsing, generation &amp; transformation</strong>. Grammar rules are <em>named objects</em> — add, replace, or remove any rule without touching the rest of the system.</span>
+            </div>
+            <div class="approach-item">
+                <img alt="Comunica" src="/img/logos/comunica-word.svg" class="approach-logo">
+                <span>Modular <strong>knowledge graph query engine</strong>. Dependency injection via Components.js — configure exactly which actors handle each query operation.</span>
+            </div>
+            <div class="approach-combined">
+                <span class="cicon">🔗</span>
+                Both frameworks are configured <strong>simultaneously</strong> from the same feature selections, ensuring parser and engine always match.
+            </div>
+        </div>
 
         <div id="take-home">
-            Offline-First Collaborative RDF Editing using Web Standards
+            Compose any SPARQL dialect from named rules — <strong>parser, generator, transformer &amp; engine stay in sync</strong>
         </div>
 
-        <div id="rdf-representation">
-            <pre id="rdf-code"><code>&lt;&gt; a crdt:container .
-[] crdt:tags &lt;&lt;( &lt;&gt; a crdt:container )&gt;&gt; ;
-   <span style="color: var(--deep-green)">crdt:add "be2f95dd-..."^^crdt:uuid .</span>
-<span style="color: hsl(240, 100%, 50%)">:me a :human .</span>
-[] crdt:tags &lt;&lt;( :me a :human )&gt;&gt; ;
-   <span style="color: var(--deep-green)">crdt:add "be2f95dd-..."^^crdt:uuid .</span>
-   <span style="color: var(--deep-red)">crdt:remove "be2f95dd-..."^^crdt:uuid .</span>
-<span style="color: hsl(0, 0%, 50%)">[] crdt:tags &lt;&lt;( :me a :man )&gt;&gt; ;</span>
-   <span style="color: var(--deep-red)">crdt:remove
-"216ac011-...--2025-03-13T14:00:00Z"^^crdt:stamp-uuid .</span></code></pre>
-            <div id="rdf-explain-1">
-                <span class="title"><span class="icon">✔</span> <span>:me a :human</span> — present</span>
-                <span>Has add-tag not in tombstone set</span>
-                <span><span class="icon">↳</span> <span style="font-weight: bold">add-wins</span> over concurrent remove</span>
+        <div id="traqula-section">
+            <div class="section-hdr">Language Tooling: <strong>Traqula</strong></div>
+            <img class="comp-fig" src="/img/traqula-composability.svg" role="img"
+                 alt="Traqula composability: SPARQL 1.1 base rules are composed with ADJUST and SPARQL 1.2 extensions using the ⊕ operator, then built into a unified Parser, Generator, and Transformer via .build().">
+        </div>
+
+        <div id="comunica-section">
+            <div class="section-hdr">Query Engine:&nbsp;<img alt="Comunica" src="/img/logos/comunica-word.svg" class="hdr-logo"></div>
+            <img class="comp-fig" src="/img/comunica-composability.svg" role="img"
+                 alt="Comunica composability: feature selections drive a Components.js configuration that enables the matching actor sets in the query engine.">
+        </div>
+
+        <div id="demo">
+            <div id="demo-text">
+                <div class="title">Interactive Demonstration</div>
+                <p>Web client that configures <strong>Traqula</strong> and <strong>Comunica</strong> simultaneously. Start from a SPARQL 1.1 baseline and enable:</p>
+                <ul>
+                    <li>SPARQL 1.2 — RDF-star &amp; reification</li>
+                    <li>ADJUST built-in function</li>
+                    <li>LATERAL operation</li>
+                </ul>
+                <p>The system shows the resulting <strong>Traqula builder config</strong> and <strong>Comunica Components.js config</strong>, then executes federated SPARQL queries with the composed setup.</p>
             </div>
-            <div id="rdf-explain-2">
-                <span class="title"><span class="icon">❌</span> <span>:me a :man</span> — absent</span>
-                <span>No add-tags remain</span>
-                <span>stampUuid enables tombstone expiry</span>
+            <div id="demo-links">
+                <a class="demo-link" href="https://youtu.be/7VFJGvxbRsI">
+                    <span>▶</span><span>youtu.be/7VFJGvxbRsI</span>
+                </a>
+                <a class="demo-link" href="https://compose-parser-engine.demo.jitsedesmet.be/">
+                    <span>⚙</span><span>compose-parser-engine.<br>demo.jitsedesmet.be</span>
+                </a>
+                <a class="demo-link" href="https://2026-eswc-demo.jitsedesmet.be/">
+                    <span class="cicon">📄</span><span>2026-eswc-demo.<br>jitsedesmet.be</span>
+                </a>
             </div>
-        </div>
-
-        <div id="notation">
-            <div class="title">Notation</div>
-            <ul>
-                <li>RDF 1.2 native reification</li>
-                <li>NTP-bound optimize
-                    <ul>
-                        <li>Drop old & redundant tags</li>
-                        <li>Drop old tombstones</li>
-                    </ul>
-                </li>
-                <li>NTP max pairwise 2000s drift</li>
-            </ul>
-        </div>
-
-        <div id="architecture">
-            <div class="title">Architecture</div>
-            <ul>
-                <li>RESTful state based interactions</li>
-                <li>ETAG preventing mid flight collision</li>
-                <li>Atomicity through self confinement</li>
-            </ul>
-        </div>
-
-        <object id="stack-img" role="img" data="/img/rdf-crdt-stack.svg" type="image/svg+xml"
-                aria-label="Architectural stack of the approach.
-             An agent (application/ user) communicates with a SPARQL engine using SPARQL.
-             In turn, the engine, which just supports standard SPARQL queries and updates, communicates with its internal datastore.
-             The store, being a CRDT store, has an OR-set implementation in RDF1.2, and communicates with the Web.
-             This communication is based on GET requests responding with ETags, and performing PUT requests using the If-Match header.">
-
-        </object>
-
-        <div id="conclusion">
-            <div class="title">Conclusion & <br>Future Work</div>
-            <ul style="list-style: '';">
-                <li><img src="/img/logos/npm.svg" style="height: 0.6em"/>
-                    <a style="color: var(--color-sec)" href="https://www.npmjs.com/package/orset-rdf-store">
-                        orset-rdf-store
-                    </a></li>
-                <li><span class="icon" style="font-size: 0.8em; font-weight: 300">✔</span> Abstracted to
-                    <a href="https://www.npmjs.com/package/@rdfjs/types">RDF/JS Types</a>
-                    <a href="https://github.com/rdfjs/types/blob/c635435724076301e2b451fb25d7458ad82dc322/stream.d.ts#L82">Store</a>
-                    interface
-                </li>
-                <li>Try yourself in <img id="comunica" alt="Comunica" src="img/logos/comunica-word.svg"></li>
-                <li><span class="icon">🔬</span> Need for Constraint-Aware Merge</li>
-            </ul>
+            <div id="demo-qrs">
+                <div class="qr-item">
+                    <a href="https://compose-parser-engine.demo.jitsedesmet.be/">
+                        <img src="/img/qr-demo.svg" alt="QR code for live demo">
+                    </a>
+                    <div>Live Demo</div>
+                </div>
+                <div class="qr-item">
+                    <a href="https://2026-eswc-demo.jitsedesmet.be/">
+                        <img src="/img/qr-paper-new.svg" alt="QR code for paper">
+                    </a>
+                    <div>Paper</div>
+                </div>
+            </div>
         </div>
 
         <footer>
@@ -113,21 +107,11 @@
                 <a href="mailto:Jitse.DeSmet@ugent.be">Jitse.DeSmet@ugent.be</a>
                 <a href="mailto:Ruben.Taelman@ugent.be">Ruben.Taelman@ugent.be</a>
             </div>
-
-            <div style="margin: 0 0 0 auto; display: flex; flex-direction: column; gap: 0.1em; align-items: center;">
-                <div>Paper:</div>
-                <a style="font-size: 0.8em; text-align: center" href="https://2026-icwe-poster.jitsedesmet.be/">
-                    2026-icwe-poster.<br>jitsedesmet.be</a>
-            </div>
-            <a style="height: 80%; margin: 0 0 0 0.5em; padding: 0;"
-               href="https://2026-icwe-poster.jitsedesmet.be/">
-                <img style="margin: 0" height="100%" src="img/qr-paper.svg">
-            </a>
-
             <img alt="logo fwo" class="logo" style="margin: 0 0 0 auto" height="30%" src="img/logos/logo-fwo-white.svg">
             <img alt="logo ugent" class="logo" height="75%" src="img/logos/logo-ugent-white.svg">
             <img alt="logo imec" style="margin: 0" class="logo" height="50%" src="img/logos/logo-imec-white.svg">
         </footer>
+
     </div>
 </div>
 <script type="module" src="/js/main.js"></script>

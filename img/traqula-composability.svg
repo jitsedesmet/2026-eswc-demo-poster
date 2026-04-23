@@ -1,0 +1,73 @@
+<svg viewBox="0 0 400 265" xmlns="http://www.w3.org/2000/svg" font-family="Inter, 'Inter Tight', sans-serif">
+  <defs>
+    <marker id="arr-t" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 Z" fill="#005eae"/>
+    </marker>
+  </defs>
+
+  <!-- ===== LEFT: Stacked Rule Layers ===== -->
+
+  <!-- SPARQL 1.1 Base -->
+  <rect x="5" y="5" width="188" height="63" rx="7" fill="#d4e5f5" stroke="#005eae" stroke-width="2"/>
+  <text x="15" y="22" font-size="11" font-weight="bold" fill="#005eae">SPARQL 1.1 Base</text>
+  <rect x="10" y="27" width="42" height="16" rx="3" fill="#005eae"/>
+  <text x="31" y="39" text-anchor="middle" font-size="8" font-family="monospace" fill="white">query</text>
+  <rect x="57" y="27" width="44" height="16" rx="3" fill="#005eae"/>
+  <text x="79" y="39" text-anchor="middle" font-size="8" font-family="monospace" fill="white">select</text>
+  <rect x="106" y="27" width="40" height="16" rx="3" fill="#005eae"/>
+  <text x="126" y="39" text-anchor="middle" font-size="8" font-family="monospace" fill="white">filter</text>
+  <text x="151" y="39" font-size="10" fill="#005eae" opacity="0.5">···</text>
+  <rect x="10" y="47" width="42" height="16" rx="3" fill="#005eae"/>
+  <text x="31" y="59" text-anchor="middle" font-size="8" font-family="monospace" fill="white">expr</text>
+  <rect x="57" y="47" width="44" height="16" rx="3" fill="#005eae"/>
+  <text x="79" y="59" text-anchor="middle" font-size="8" font-family="monospace" fill="white">triple</text>
+  <text x="107" y="59" font-size="8.5" fill="#005eae" opacity="0.7">··· (100+ named rules)</text>
+
+  <!-- compose operator -->
+  <text x="97" y="90" text-anchor="middle" font-size="22" font-weight="bold" fill="#009926">⊕</text>
+
+  <!-- ADJUST Extension (dashed green) -->
+  <rect x="5" y="97" width="188" height="48" rx="7" fill="#f0fff4" stroke="#009926" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="15" y="114" font-size="11" font-weight="bold" fill="#009926">ADJUST Extension</text>
+  <rect x="10" y="119" width="74" height="16" rx="3" fill="#009926"/>
+  <text x="47" y="131" text-anchor="middle" font-size="8" font-family="monospace" fill="white">builtIn ↑</text>
+  <text x="91" y="131" font-size="8.5" fill="#009926" font-style="italic">1 rule overridden</text>
+
+  <!-- compose operator -->
+  <text x="97" y="165" text-anchor="middle" font-size="22" font-weight="bold" fill="#009926">⊕</text>
+
+  <!-- SPARQL 1.2 Extension (dashed green) -->
+  <rect x="5" y="172" width="188" height="50" rx="7" fill="#f0fff4" stroke="#009926" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="15" y="189" font-size="11" font-weight="bold" fill="#009926">SPARQL 1.2 Extension</text>
+  <rect x="10" y="194" width="52" height="16" rx="3" fill="#009926"/>
+  <text x="36" y="206" text-anchor="middle" font-size="8" font-family="monospace" fill="white">triple ↑</text>
+  <rect x="68" y="194" width="78" height="16" rx="3" fill="#009926"/>
+  <text x="107" y="206" text-anchor="middle" font-size="8" font-family="monospace" fill="white">reification +</text>
+  <text x="152" y="206" font-size="10" fill="#009926" opacity="0.5">···</text>
+
+  <!-- ↑ = override, + = new -->
+  <text x="5" y="240" font-size="8.5" fill="#009926" font-style="italic">↑ override existing rule  ·  + add new rule</text>
+
+  <!-- ===== CENTER: Arrow + .build() ===== -->
+  <line x1="197" y1="128" x2="221" y2="128" stroke="#005eae" stroke-width="2.5" marker-end="url(#arr-t)"/>
+  <text x="209" y="120" text-anchor="middle" font-size="8.5" fill="#005eae" font-style="italic">.build()</text>
+
+  <!-- ===== RIGHT: Output Toolchain ===== -->
+  <text x="308" y="22" text-anchor="middle" font-size="11" font-weight="bold" fill="#005eae">Composed Toolchain</text>
+
+  <rect x="230" y="30" width="163" height="32" rx="6" fill="#005eae"/>
+  <text x="311" y="51" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Parser</text>
+
+  <rect x="230" y="72" width="163" height="32" rx="6" fill="#005eae"/>
+  <text x="311" y="93" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Generator</text>
+
+  <rect x="230" y="114" width="163" height="32" rx="6" fill="#005eae"/>
+  <text x="311" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Transformer</text>
+
+  <text x="230" y="165" font-size="9" fill="#005eae">● Always in sync with each other</text>
+  <text x="230" y="179" font-size="9" fill="#005eae">● One .build() call, full pipeline</text>
+  <text x="230" y="193" font-size="9" fill="#005eae">● SPARQL 1.1 · 1.2 · ADJUST</text>
+  <text x="230" y="207" font-size="9" fill="#005eae">  · custom dialects</text>
+  <text x="230" y="224" font-size="9" fill="#005eae">● Downstream projects extend</text>
+  <text x="230" y="238" font-size="9" fill="#005eae">  without upstream changes</text>
+</svg>

@@ -13,5 +13,8 @@
     "sass-embedded": "^1.93.2",
     "vite": "^7.1.7",
     "vite-plugin-singlefile": "^2.3.2"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.4"
   }
 }
