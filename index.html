@@ -20,9 +20,9 @@
         <div id="requirements">
             <div class="title">Motivation</div>
             <ul>
-                <li>SPARQL ecosystems are increasingly diverse (versions, dialects, and extensions)</li>
-                <li>Tools should be configurable incrementally instead of maintained as monoliths</li>
-                <li>Composable language tooling and query engines reduce integration effort</li>
+                <li>SPARQL is diversifying: SPARQL 1.1, 1.2, GeoSPARQL, ADJUST, LATERAL — each requiring different parsing logic</li>
+                <li>Monolithic parsers cannot be extended without long-term forks, breaking upstream compatibility</li>
+                <li>Comunica's modular engine needs a matching composable language layer to unlock new query features</li>
             </ul>
         </div>
 
@@ -31,50 +31,52 @@
         </object>
 
         <div id="take-home">
-            Modular parser construction and modular query execution can be composed live in one demo.
+            Compose SPARQL parsers, generators and query engines on-the-fly — no fork, no rewrite.
         </div>
 
         <div id="rdf-representation">
-            <pre id="rdf-code"><code># Traqula feature composition (demo)
-base: SPARQL_1_1
-features:
-  - sparql12
-  - adjust
-  - lateral
+            <pre id="rdf-code"><code><span style="color:hsl(0,0%,55%)">// Extend SPARQL 1.2 with LATERAL join</span>
+<span style="color:var(--deep-green)">import</span> { <span style="color:hsl(220,80%,40%)">Sparql12ParserBuilder</span> }
+  <span style="color:var(--deep-green)">from</span> <span style="color:var(--deep-red)">'@traqula/parser-sparql-1-2'</span>;
+<span style="color:var(--deep-green)">import</span> { lateralRule }
+  <span style="color:var(--deep-green)">from</span> <span style="color:var(--deep-red)">'@traqula/rule-lateral'</span>;
 
-# Generated artifacts
-lexer, parser, generator,
-transformerToAst, transformerFromAst</code></pre>
+<span style="color:var(--deep-green)">const</span> parser =
+  <span style="color:var(--deep-green)">new</span> <span style="color:hsl(220,80%,40%)">Sparql12ParserBuilder</span>()
+    .addRule(lateralRule) <span style="color:hsl(0,0%,55%)">// ← compose!</span>
+    .buildParser();</code></pre>
             <div id="rdf-explain-1">
-                <span class="title"><span class="icon">✔</span> <span>Composable language tooling</span></span>
-                <span>Rules are named and swappable</span>
-                <span><span class="icon">↳</span> Parsers/generators adapt incrementally</span>
+                <span class="title"><span class="icon">✔</span> <span>Language tooling composability</span></span>
+                <span>Rules are named first-class objects</span>
+                <span><span class="icon">↳</span> Add, replace or remove — no fork needed</span>
             </div>
-            <div id="rdf-explain-2">
-                <span class="title"><span class="icon">✔</span> <span>Composable execution stack</span></span>
-                <span>Engine configs adapt to selected features</span>
-                <span>Functionality emerges when parser and engine align</span>
+            <div id="rdf-explain-2" style="border-color:var(--color-prim);background-color:var(--color-prim-light);">
+                <span class="title" style="color:var(--color-prim)"><span class="icon">✔</span> <span>Query engine composability</span></span>
+                <span>Comunica actors adapt via Components.js</span>
+                <span><span class="icon">↳</span> Parser and engine always stay aligned</span>
             </div>
         </div>
 
         <div id="notation">
-            <div class="title">Demo capabilities</div>
+            <div class="title">Traqula features</div>
             <ul>
-                <li>Toggle SPARQL 1.2 support</li>
-                <li>Toggle built-in ADJUST</li>
-                <li>Toggle lateral operation</li>
-                <li>Inspect generated Traqula builders and transformers</li>
-                <li>Inspect generated Comunica Components.js configuration</li>
-                <li>Execute federated queries with the selected setup</li>
+                <li>Parse, generate &amp; transform SPARQL 1.1<ul><li>Baseline for all variants</li></ul></li>
+                <li>SPARQL 1.2 as incremental extension<ul><li>26 grammar rule deltas</li></ul></li>
+                <li>ADJUST built-in — compatible with Oxigraph</li>
+                <li>LATERAL join support as opt-in rule</li>
+                <li>Builder pattern: start any variant from existing one</li>
+                <li>Open algebraic model for new Comunica operations</li>
             </ul>
         </div>
 
         <div id="architecture">
-            <div class="title">Contributions</div>
+            <div class="title">Demo walkthrough</div>
             <ul>
-                <li>Interactive showcase of Traqula modularity</li>
-                <li>Live coupling of parser setup and query engine setup</li>
-                <li>Clear evidence of parser-engine composability in practice</li>
+                <li>Start from SPARQL 1.1 baseline</li>
+                <li>Toggle SPARQL 1.2, ADJUST or LATERAL</li>
+                <li>Inspect auto-generated Traqula builder config</li>
+                <li>Inspect auto-generated Comunica Components.js config</li>
+                <li>Execute live federated SPARQL queries</li>
             </ul>
         </div>
 
@@ -83,16 +85,16 @@ transformerToAst, transformerFromAst</code></pre>
         </object>
 
         <div id="conclusion">
-            <div class="title">Resources &<br>Takeaways</div>
+            <div class="title">Try It &amp; Resources</div>
             <ul style="list-style: '';">
                 <li><img src="/img/logos/npm.svg" style="height: 0.6em"/>
                     <a style="color: var(--color-sec)" href="https://www.npmjs.com/package/@traqula/parser-sparql-1-2">
                         @traqula/parser-sparql-1-2
                     </a></li>
                 <li><span class="icon">🔗</span> Demo: <a href="https://compose-parser-engine.demo.jitsedesmet.be/">compose-parser-engine.demo.jitsedesmet.be</a></li>
-                <li><span class="icon">🎬</span> Video: <a href="https://youtu.be/7VFJGvxbRsI">youtu.be/7VFJGvxbRsI</a></li>
-                <li>Traqula enables incremental parser/generator/transformer variants</li>
-                <li>Comunica composition complements language-level composition</li>
+                <li><span class="icon">🎬</span> <a href="https://youtu.be/7VFJGvxbRsI">youtu.be/7VFJGvxbRsI</a></li>
+                <li>Try yourself in <img id="comunica" src="/img/logos/comunica-word.svg" style="height:0.8em"/></li>
+                <li><span class="icon">📄</span> Resource paper at ESWC 2026</li>
             </ul>
         </div>
 

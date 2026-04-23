@@ -4,45 +4,50 @@
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#005eae"/>
     </marker>
-    <style>
-      .box{fill:#fff;stroke:#005eae;stroke-width:3;rx:8;ry:8}
-      .mid{fill:#eef4fb;stroke:#005eae;stroke-width:3;rx:10;ry:10}
-      .txt{font-family:Inter,Arial,sans-serif;font-size:11px;fill:#003f76;font-weight:600}
-      .sub{font-family:Inter,Arial,sans-serif;font-size:10px;fill:#003f76}
-      .link{stroke:#005eae;stroke-width:2.5;fill:none;marker-end:url(#arrow)}
-    </style>
   </defs>
 
-  <rect class="box" x="8" y="12" width="85" height="36"/>
-  <text class="txt" x="50.5" y="28" text-anchor="middle">SPARQL 1.1</text>
-  <text class="sub" x="50.5" y="40" text-anchor="middle">base rules</text>
+  <!-- SPARQL 1.1 — white fill, blue border -->
+  <rect x="8" y="10" width="78" height="36" rx="8" fill="white" stroke="#005eae" stroke-width="3.5"/>
+  <text font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#003f76" x="47" y="26" text-anchor="middle">SPARQL 1.1</text>
+  <text font-family="Inter,Arial,sans-serif" font-size="9" fill="#003f76" x="47" y="39" text-anchor="middle">base rules</text>
 
-  <rect class="box" x="104" y="12" width="85" height="36"/>
-  <text class="txt" x="146.5" y="28" text-anchor="middle">SPARQL 1.2</text>
-  <text class="sub" x="146.5" y="40" text-anchor="middle">delta rules</text>
+  <!-- +SPARQL 1.2 — amber fill/border -->
+  <rect x="107.5" y="10" width="78" height="36" rx="8" fill="#fff7ea" stroke="#fbba64" stroke-width="3.5"/>
+  <text font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#8a5a11" x="146.5" y="26" text-anchor="middle">+SPARQL 1.2</text>
+  <text font-family="Inter,Arial,sans-serif" font-size="9" fill="#8a5a11" x="146.5" y="39" text-anchor="middle">26 new rules</text>
 
-  <rect class="box" x="200" y="12" width="85" height="36"/>
-  <text class="txt" x="242.5" y="28" text-anchor="middle">Extensions</text>
-  <text class="sub" x="242.5" y="40" text-anchor="middle">ADJUST, LATERAL</text>
+  <!-- +Extensions — amber fill/border -->
+  <rect x="207" y="10" width="78" height="36" rx="8" fill="#fff7ea" stroke="#fbba64" stroke-width="3.5"/>
+  <text font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#8a5a11" x="246" y="26" text-anchor="middle">+Extensions</text>
+  <text font-family="Inter,Arial,sans-serif" font-size="9" fill="#8a5a11" x="246" y="39" text-anchor="middle">ADJUST · LATERAL</text>
 
-  <rect class="mid" x="50" y="72" width="193" height="42"/>
-  <text class="txt" x="146.5" y="90" text-anchor="middle">Traqula compositional builder</text>
-  <text class="sub" x="146.5" y="103" text-anchor="middle">add / replace / remove named rules</text>
+  <!-- Converging arrows to Traqula Builder -->
+  <line x1="47" y1="46" x2="90" y2="72" stroke="#005eae" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="146.5" y1="46" x2="146.5" y2="72" stroke="#005eae" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="246" y1="46" x2="202" y2="72" stroke="#005eae" stroke-width="2.5" marker-end="url(#arrow)"/>
 
-  <path class="link" d="M 50 49 L 98 72"/>
-  <path class="link" d="M 146.5 49 L 146.5 72"/>
-  <path class="link" d="M 242.5 49 L 195 72"/>
+  <!-- Traqula Builder box -->
+  <rect x="47" y="72" width="199" height="44" rx="12" fill="#e8f2fb" stroke="#005eae" stroke-width="4"/>
+  <text font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#003f76" x="146.5" y="91" text-anchor="middle">Traqula Builder</text>
+  <text font-family="Inter,Arial,sans-serif" font-size="9" fill="#003f76" x="146.5" y="107" text-anchor="middle">name-based rule lookup &amp; composition</text>
 
-  <rect class="box" x="22" y="136" width="116" height="42"/>
-  <text class="txt" x="80" y="154" text-anchor="middle">Generated language</text>
-  <text class="sub" x="80" y="167" text-anchor="middle">parser + generator +</text>
-  <text class="sub" x="80" y="178" text-anchor="middle">transformers</text>
+  <!-- Diverging arrows to output boxes -->
+  <line x1="93" y1="116" x2="65" y2="142" stroke="#005eae" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="146.5" y1="116" x2="146.5" y2="142" stroke="#005eae" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="200" y1="116" x2="228" y2="142" stroke="#005eae" stroke-width="2.5" marker-end="url(#arrow)"/>
 
-  <rect class="box" x="154" y="136" width="116" height="42"/>
-  <text class="txt" x="212" y="154" text-anchor="middle">Configuration view</text>
-  <text class="sub" x="212" y="167" text-anchor="middle">shown live in</text>
-  <text class="sub" x="212" y="178" text-anchor="middle">the web demo</text>
+  <!-- Output: Parser -->
+  <rect x="10" y="142" width="82" height="38" rx="8" fill="white" stroke="#005eae" stroke-width="3"/>
+  <text font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#003f76" x="51" y="158" text-anchor="middle">Parser</text>
+  <text font-family="Inter,Arial,sans-serif" font-size="9" fill="#003f76" x="51" y="171" text-anchor="middle">lexer + grammar</text>
 
-  <path class="link" d="M 118 114 L 89 136"/>
-  <path class="link" d="M 175 114 L 204 136"/>
+  <!-- Output: Generator -->
+  <rect x="107.5" y="142" width="78" height="38" rx="8" fill="white" stroke="#005eae" stroke-width="3"/>
+  <text font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#003f76" x="146.5" y="158" text-anchor="middle">Generator</text>
+  <text font-family="Inter,Arial,sans-serif" font-size="9" fill="#003f76" x="146.5" y="171" text-anchor="middle">AST → SPARQL text</text>
+
+  <!-- Output: Transformers -->
+  <rect x="200" y="142" width="82" height="38" rx="8" fill="white" stroke="#005eae" stroke-width="3"/>
+  <text font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#003f76" x="241" y="158" text-anchor="middle">Transformers</text>
+  <text font-family="Inter,Arial,sans-serif" font-size="9" fill="#003f76" x="241" y="171" text-anchor="middle">toAst &amp; fromAst</text>
 </svg>
