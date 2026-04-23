@@ -11,115 +11,161 @@
       typeof="schema:Poster">
 <div id="poster-wrapper">
     <div id="app">
-        <header class="mtitle" property="schema:name" style="font-size: 1.45em;">
-            Composable <span style="color: var(--color-sec)">SPARQL Parsing</span>
-            and Query Execution<br>
-            with <span style="color: var(--color-sec)">Traqula</span>
-            and <span style="color: var(--color-sec)">Comunica</span>
+
+        <!-- ═══ HEADER ══════════════════════════════════════════════════════ -->
+        <header>
+            <div class="header-kicker">ESWC 2026 Demo &nbsp;·&nbsp; Ghent University – imec, IDLab</div>
+            <div class="header-title" property="schema:name">
+                Composable <em>SPARQL Parsing</em> and Query Execution<br>
+                with <em>Traqula</em> and <em>Comunica</em>
+            </div>
+            <div class="header-authors">Jitse De Smet &nbsp;·&nbsp; Ruben Taelman</div>
         </header>
 
-        <div id="requirements">
-            <div class="title">Motivation</div>
+        <!-- ═══ MOTIVATION ══════════════════════════════════════════════════ -->
+        <section id="motivation">
+            <div class="section-title"><span class="nicon">⚠</span> Problem</div>
             <ul>
-                <li>SPARQL is diversifying: SPARQL 1.1, 1.2, GeoSPARQL, ADJUST, LATERAL — each requiring different parsing logic</li>
-                <li>Monolithic parsers cannot be extended without long-term forks, breaking upstream compatibility</li>
-                <li>Comunica's modular engine needs a matching composable language layer to unlock new query features</li>
+                <li>SPARQL has diverged into <strong>many dialects</strong>: 1.1, 1.2, GeoSPARQL, ADJUST, LATERAL — each needs different parse logic</li>
+                <li><strong>Monolithic parsers</strong> require long-lived forks that break upstream compatibility over time</li>
+                <li><strong>Comunica's</strong> modular actor architecture needs an equally composable language layer to unlock new query features end-to-end</li>
             </ul>
-        </div>
+            <div class="stat-row">
+                <div class="stat blue">
+                    <span class="stat-num">5+</span>
+                    <span class="stat-label">SPARQL variants</span>
+                </div>
+                <div class="stat amber">
+                    <span class="stat-num">26</span>
+                    <span class="stat-label">rule deltas in 1.2</span>
+                </div>
+                <div class="stat green">
+                    <span class="stat-num">0</span>
+                    <span class="stat-label">forks needed</span>
+                </div>
+            </div>
+        </section>
 
-        <object id="system-img" data="/img/composability-system.svg" type="image/svg+xml" role="img"
-                aria-label="Visualization of language tooling composability, combining SPARQL 1.1 base rules, SPARQL 1.2 deltas and optional extensions into a generated Traqula parser and transformers.">
+        <!-- ═══ SYSTEM DIAGRAM ══════════════════════════════════════════════ -->
+        <object id="system-img" data="/img/composability-system.svg" type="image/svg+xml"
+                aria-label="Language tooling composability: SPARQL rule modules feed into the Traqula Builder which outputs a Parser, Generator and Transformers.">
         </object>
 
+        <!-- ═══ TAKE-HOME ════════════════════════════════════════════════════ -->
         <div id="take-home">
-            Compose SPARQL parsers, generators and query engines on-the-fly — no fork, no rewrite.
+            <span class="cicon">💡</span>
+            Compose your SPARQL parser and query engine on-the-fly —
+            <strong>no fork, no rewrite, no breaking change.</strong>
         </div>
 
-        <div id="rdf-representation">
-            <pre id="rdf-code"><code><span style="color:hsl(0,0%,55%)">// Extend SPARQL 1.2 with LATERAL join</span>
-<span style="color:var(--deep-green)">import</span> { <span style="color:hsl(220,80%,40%)">Sparql12ParserBuilder</span> }
-  <span style="color:var(--deep-green)">from</span> <span style="color:var(--deep-red)">'@traqula/parser-sparql-1-2'</span>;
-<span style="color:var(--deep-green)">import</span> { lateralRule }
-  <span style="color:var(--deep-green)">from</span> <span style="color:var(--deep-red)">'@traqula/rule-lateral'</span>;
+        <!-- ═══ CODE SECTION ════════════════════════════════════════════════ -->
+        <div id="code-section">
+            <div class="section-title"><span class="nicon">⌨</span> Rule-based composition API</div>
+            <div class="code-and-explain">
+                <pre id="rdf-code"><code><span class="c">// Extend SPARQL 1.2 with LATERAL join</span>
+<span class="k">import</span> { <span class="cls">Sparql12ParserBuilder</span> }
+  <span class="k">from</span> <span class="s">'@traqula/parser-sparql-1-2'</span>;
+<span class="k">import</span> { <span class="v">lateralRule</span> }
+  <span class="k">from</span> <span class="s">'@traqula/rule-lateral'</span>;
 
-<span style="color:var(--deep-green)">const</span> parser =
-  <span style="color:var(--deep-green)">new</span> <span style="color:hsl(220,80%,40%)">Sparql12ParserBuilder</span>()
-    .addRule(lateralRule) <span style="color:hsl(0,0%,55%)">// ← compose!</span>
-    .buildParser();</code></pre>
-            <div id="rdf-explain-1">
-                <span class="title"><span class="icon">✔</span> <span>Language tooling composability</span></span>
-                <span>Rules are named first-class objects</span>
-                <span><span class="icon">↳</span> Add, replace or remove — no fork needed</span>
-            </div>
-            <div id="rdf-explain-2" style="border-color:var(--color-prim);background-color:var(--color-prim-light);">
-                <span class="title" style="color:var(--color-prim)"><span class="icon">✔</span> <span>Query engine composability</span></span>
-                <span>Comunica actors adapt via Components.js</span>
-                <span><span class="icon">↳</span> Parser and engine always stay aligned</span>
+<span class="k">const</span> <span class="v">parser</span> = <span class="k">new</span> <span class="cls">Sparql12ParserBuilder</span>()
+  .addRule(<span class="v">lateralRule</span>) <span class="c">// ← extend!</span>
+  .buildParser();</code></pre>
+                <div class="explain-stack">
+                    <div class="explain-card green">
+                        <div class="card-check nicon">✔</div>
+                        <div>
+                            <div class="card-title">Language tooling composability</div>
+                            <div>Rules are named first-class objects</div>
+                            <div class="sub">↳ add · replace · remove per builder</div>
+                            <div class="sub">↳ no fork, no rewrite required</div>
+                        </div>
+                    </div>
+                    <div class="explain-card blue">
+                        <div class="card-check nicon">✔</div>
+                        <div>
+                            <div class="card-title">Query engine composability</div>
+                            <div>Comunica actors wired via Components.js</div>
+                            <div class="sub">↳ parser and engine always stay aligned</div>
+                            <div class="sub">↳ features toggle end-to-end</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div id="notation">
-            <div class="title">Traqula features</div>
+        <!-- ═══ FEATURES ════════════════════════════════════════════════════ -->
+        <section id="features">
+            <div class="section-title amber"><span class="nicon">⚡</span> Traqula capabilities</div>
             <ul>
-                <li>Parse, generate &amp; transform SPARQL 1.1<ul><li>Baseline for all variants</li></ul></li>
-                <li>SPARQL 1.2 as incremental extension<ul><li>26 grammar rule deltas</li></ul></li>
-                <li>ADJUST built-in — compatible with Oxigraph</li>
-                <li>LATERAL join support as opt-in rule</li>
-                <li>Builder pattern: start any variant from existing one</li>
+                <li>Full SPARQL 1.1 &mdash;
+                    <span class="pill">parse</span>
+                    <span class="pill">generate</span>
+                    <span class="pill">transform</span>
+                </li>
+                <li>SPARQL 1.2 as an incremental delta — <strong>26 rule changes</strong></li>
+                <li>ADJUST function extension, compatible with Oxigraph</li>
+                <li>LATERAL join as an opt-in rule extension</li>
+                <li>Builder pattern — clone &amp; extend any existing variant</li>
                 <li>Open algebraic model for new Comunica operations</li>
+                <li>
+                    <img class="inline-logo" src="/img/logos/comunica-word.svg" alt="Comunica"/>
+                    actors adapt automatically via Components.js
+                </li>
             </ul>
-        </div>
+        </section>
 
-        <div id="architecture">
-            <div class="title">Demo walkthrough</div>
-            <ul>
-                <li>Start from SPARQL 1.1 baseline</li>
-                <li>Toggle SPARQL 1.2, ADJUST or LATERAL</li>
-                <li>Inspect auto-generated Traqula builder config</li>
-                <li>Inspect auto-generated Comunica Components.js config</li>
-                <li>Execute live federated SPARQL queries</li>
-            </ul>
-        </div>
+        <!-- ═══ DEMO ═════════════════════════════════════════════════════════ -->
+        <section id="demo">
+            <div class="section-title"><span class="nicon">▶</span> Demo walkthrough</div>
+            <ol>
+                <li>Start from the <strong>SPARQL 1.1</strong> baseline</li>
+                <li>Toggle <strong>SPARQL 1.2</strong>, ADJUST, or LATERAL on/off</li>
+                <li>Inspect the auto-generated <strong>Traqula</strong> builder config</li>
+                <li>Inspect the auto-generated <strong>Components.js</strong> wiring</li>
+                <li>Execute live <strong>federated</strong> SPARQL queries</li>
+            </ol>
+        </section>
 
-        <object id="stack-img" role="img" data="/img/composability-stack.svg" type="image/svg+xml"
-                aria-label="Visualization of query engine composability from UI feature toggles to Traqula configuration, Comunica components wiring, and query execution.">
+        <!-- ═══ STACK DIAGRAM ═══════════════════════════════════════════════ -->
+        <object id="stack-img" data="/img/composability-stack.svg" type="image/svg+xml"
+                aria-label="Architecture stack: feature toggles drive Traqula Builder and Comunica Engine to query RDF data sources.">
         </object>
 
-        <div id="conclusion">
-            <div class="title">Try It &amp; Resources</div>
-            <ul style="list-style: '';">
-                <li><img src="/img/logos/npm.svg" style="height: 0.6em"/>
-                    <a style="color: var(--color-sec)" href="https://www.npmjs.com/package/@traqula/parser-sparql-1-2">
-                        @traqula/parser-sparql-1-2
-                    </a></li>
-                <li><span class="icon">🔗</span> Demo: <a href="https://compose-parser-engine.demo.jitsedesmet.be/">compose-parser-engine.demo.jitsedesmet.be</a></li>
-                <li><span class="icon">🎬</span> <a href="https://youtu.be/7VFJGvxbRsI">youtu.be/7VFJGvxbRsI</a></li>
-                <li>Try yourself in <img id="comunica" src="/img/logos/comunica-word.svg" style="height:0.8em"/></li>
-                <li><span class="icon">📄</span> Resource paper at ESWC 2026</li>
+        <!-- ═══ RESOURCES ════════════════════════════════════════════════════ -->
+        <section id="resources">
+            <div class="section-title green"><span class="nicon">🔗</span> Try it</div>
+            <div id="qr-wrap">
+                <img id="qr" src="/img/qr-paper.svg" alt="QR code for paper and demo"/>
+                <div id="qr-label">Scan for demo &amp; paper</div>
+            </div>
+            <ul>
+                <li>
+                    <img class="inline-logo npm-logo" src="/img/logos/npm.svg" alt="npm"/>
+                    <a href="https://www.npmjs.com/package/@traqula/parser-sparql-1-2">@traqula/parser-sparql-1-2</a>
+                </li>
+                <li><span class="nicon">🌐</span> <a href="https://compose-parser-engine.demo.jitsedesmet.be">compose-parser-engine.demo.jitsedesmet.be</a></li>
+                <li><span class="cicon">🎬</span> <a href="https://youtu.be/7VFJGvxbRsI">youtu.be/7VFJGvxbRsI</a></li>
+                <li><span class="nicon">📄</span> Resource paper at ESWC 2026</li>
             </ul>
-        </div>
+        </section>
 
+        <!-- ═══ FOOTER ═══════════════════════════════════════════════════════ -->
         <footer>
-            <div style="display: flex; flex-direction: column; gap: 0.5em;">
+            <div class="footer-emails">
                 <a href="mailto:Jitse.DeSmet@ugent.be">Jitse.DeSmet@ugent.be</a>
                 <a href="mailto:Ruben.Taelman@ugent.be">Ruben.Taelman@ugent.be</a>
             </div>
-
-            <div style="margin: 0 0 0 auto; display: flex; flex-direction: column; gap: 0.1em; align-items: center;">
-                <div>Paper:</div>
-                <a style="font-size: 0.8em; text-align: center" href="https://2026-eswc-demo.jitsedesmet.be/">
-                    2026-eswc-demo.<br>jitsedesmet.be</a>
+            <div class="footer-paper">
+                <span>Paper:</span>
+                <a href="https://2026-eswc-demo.jitsedesmet.be/">2026-eswc-demo.jitsedesmet.be</a>
             </div>
-
-            <a style="height: 80%; margin: 0 0 0 0.5em; padding: 0; display: flex; align-items: center;"
-               href="https://2026-eswc-demo.jitsedesmet.be/">
-                <span style="font-size: 0.8em; text-align: center; color: white; border: 1px solid white; border-radius: 0.4em; padding: 0.3em 0.6em;">Open paper</span>
-            </a>
-
-            <img alt="logo fwo" class="logo" style="margin: 0 0 0 auto" height="30%" src="img/logos/logo-fwo-white.svg">
-            <img alt="logo ugent" class="logo" height="75%" src="img/logos/logo-ugent-white.svg">
-            <img alt="logo imec" style="margin: 0" class="logo" height="50%" src="img/logos/logo-imec-white.svg">
+            <a class="footer-btn" href="https://2026-eswc-demo.jitsedesmet.be/">Open paper</a>
+            <img alt="FWO logo"   class="logo fwo"   src="img/logos/logo-fwo-white.svg"/>
+            <img alt="UGent logo" class="logo ugent" src="img/logos/logo-ugent-white.svg"/>
+            <img alt="imec logo"  class="logo imec"  src="img/logos/logo-imec-white.svg"/>
         </footer>
+
     </div>
 </div>
 <script type="module" src="/js/main.js"></script>

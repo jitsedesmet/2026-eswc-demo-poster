@@ -1,52 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="252" viewBox="0 0 200 252" role="img" aria-label="Query engine composability stack diagram">
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="290" viewBox="0 0 220 290"
+     role="img" aria-label="Architecture stack: feature toggles to Traqula Builder to Comunica Engine to RDF Data Sources">
   <defs>
     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#005eae"/>
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#546a80"/>
     </marker>
-    <style>
-      .t{font-family:Inter,Arial,sans-serif;font-size:11px;font-weight:700}
-      .s{font-family:Inter,Arial,sans-serif;font-size:9px}
-      .a{stroke:#005eae;stroke-width:2;fill:none;marker-end:url(#arr)}
-      .lbl{font-family:Inter,Arial,sans-serif;font-size:8px;fill:#555;text-anchor:middle}
-    </style>
+    <linearGradient id="blue-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a6fba"/>
+      <stop offset="100%" stop-color="#005eae"/>
+    </linearGradient>
+    <linearGradient id="amber-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffd080"/>
+      <stop offset="100%" stop-color="#fbba64"/>
+    </linearGradient>
+    <filter id="sh" x="-8%" y="-15%" width="116%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#00000028"/>
+    </filter>
   </defs>
 
-  <!-- Row 1: User / App -->
-  <rect x="30" y="6" width="140" height="40" rx="8" fill="white" stroke="#005eae" stroke-width="3.5"/>
-  <text class="t" x="100" y="23" text-anchor="middle" fill="#003f76">User / App</text>
-  <text class="s" x="100" y="37" text-anchor="middle" fill="#003f76">feature toggles: 1.2 · ADJUST · LATERAL</text>
+  <!-- ── Layer 1: User / App ── -->
+  <rect x="25" y="6" width="170" height="52" rx="8"
+        fill="url(#blue-g)" stroke="#003d7a" stroke-width="2" filter="url(#sh)"/>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="12" font-weight="900"
+        fill="white" x="110" y="26" text-anchor="middle">User / App</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="9"
+        fill="rgba(255,255,255,0.85)" x="110" y="40" text-anchor="middle">feature toggles</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="8.5"
+        fill="rgba(255,255,255,0.65)" x="110" y="52" text-anchor="middle">SPARQL 1.2 · ADJUST · LATERAL</text>
 
-  <!-- Arrow down, label "config" -->
-  <path class="a" d="M 100 46 L 100 62"/>
-  <text class="lbl" x="100" y="57">config</text>
+  <!-- Arrow 1 + label -->
+  <path d="M 110 58 L 110 74"
+        stroke="#546a80" stroke-width="2" fill="none"
+        stroke-dasharray="4 2.5" marker-end="url(#arr)"/>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="8"
+        fill="#546a80" x="114" y="70" dominant-baseline="middle">config</text>
 
-  <!-- Row 2: Traqula Builder -->
-  <rect x="20" y="64" width="160" height="44" rx="8" fill="#fff7ea" stroke="#fbba64" stroke-width="3.5"/>
-  <text class="t" x="100" y="82" text-anchor="middle" fill="#8a5a11">Traqula Builder</text>
-  <text class="s" x="100" y="95" text-anchor="middle" fill="#8a5a11">parser · generator · transformers</text>
-  <text class="s" x="100" y="105" text-anchor="middle" fill="#8a5a11">named rules, composable</text>
+  <!-- ── Layer 2: Traqula Builder ── -->
+  <rect x="15" y="76" width="190" height="58" rx="8"
+        fill="url(#amber-g)" stroke="#b86d00" stroke-width="2" filter="url(#sh)"/>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="12" font-weight="900"
+        fill="#5a2e00" x="110" y="97" text-anchor="middle">Traqula Builder</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="9"
+        fill="#6b3a00" x="110" y="111" text-anchor="middle">parser · generator · transformers</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="8.5"
+        fill="#7a4a00" x="110" y="124" text-anchor="middle">named, composable rule-based tooling</text>
+  <!-- Side label -->
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="7.5" font-weight="700"
+        fill="#b86d00" x="7" y="105" text-anchor="middle"
+        transform="rotate(-90 7 105)">language</text>
 
-  <!-- Arrow down, label "actors" -->
-  <path class="a" d="M 100 108 L 100 124"/>
-  <text class="lbl" x="100" y="119">actors</text>
+  <!-- Arrow 2 + label -->
+  <path d="M 110 134 L 110 150"
+        stroke="#546a80" stroke-width="2" fill="none"
+        stroke-dasharray="4 2.5" marker-end="url(#arr)"/>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="8"
+        fill="#546a80" x="114" y="146" dominant-baseline="middle">actors</text>
 
-  <!-- Row 3: Comunica Engine -->
-  <rect x="20" y="126" width="160" height="44" rx="8" fill="white" stroke="#9c0510" stroke-width="3.5"/>
-  <text class="t" x="100" y="144" text-anchor="middle" fill="#7f0010">Comunica Engine</text>
-  <text class="s" x="100" y="157" text-anchor="middle" fill="#7f0010">modular actor pipeline</text>
-  <text class="s" x="100" y="167" text-anchor="middle" fill="#7f0010">Components.js wiring</text>
+  <!-- ── Layer 3: Comunica Engine ── -->
+  <rect x="15" y="152" width="190" height="58" rx="8"
+        fill="white" stroke="#9c0510" stroke-width="2" filter="url(#sh)"/>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="12" font-weight="900"
+        fill="#7f0010" x="110" y="173" text-anchor="middle">Comunica Engine</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="9"
+        fill="#9c0510" x="110" y="187" text-anchor="middle">modular actor pipeline</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="8.5"
+        fill="#b81020" x="110" y="200" text-anchor="middle">Components.js · aligned with parser</text>
+  <!-- Side label -->
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="7.5" font-weight="700"
+        fill="#9c0510" x="213" y="181" text-anchor="middle"
+        transform="rotate(90 213 181)">query</text>
 
-  <!-- Arrow down, label "SPARQL results" -->
-  <path class="a" d="M 100 170 L 100 186"/>
-  <text class="lbl" x="100" y="181">queries</text>
+  <!-- Arrow 3 + label -->
+  <path d="M 110 210 L 110 226"
+        stroke="#546a80" stroke-width="2" fill="none"
+        stroke-dasharray="4 2.5" marker-end="url(#arr)"/>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="8"
+        fill="#546a80" x="114" y="222" dominant-baseline="middle">SPARQL</text>
 
-  <!-- Row 4: Trapezoid — "The Web" (RDF endpoints) -->
-  <path d="M 10 188 L 190 188 L 175 228 L 25 228 Z" fill="#e8f5e9" stroke="#2e7d32" stroke-width="3.5"/>
-  <text class="t" x="100" y="206" text-anchor="middle" fill="#1b5e20">The Web</text>
-  <text class="s" x="100" y="219" text-anchor="middle" fill="#1b5e20">RDF-over-HTTP · SPARQL endpoints</text>
-
-  <!-- Side annotations -->
-  <text class="lbl" x="8" y="92" text-anchor="middle" transform="rotate(-90,8,92)" fill="#fbba64">language layer</text>
-  <text class="lbl" x="192" y="150" text-anchor="middle" transform="rotate(90,192,150)" fill="#9c0510">query layer</text>
+  <!-- ── Layer 4: RDF Data Sources (trapezoid) ── -->
+  <path d="M 5 228 L 215 228 L 200 278 L 20 278 Z"
+        fill="#edfaf3" stroke="#1a7a40" stroke-width="2" filter="url(#sh)"/>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="12" font-weight="900"
+        fill="#1a7a40" x="110" y="249" text-anchor="middle">RDF Data Sources</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="9"
+        fill="#1a7a40" x="110" y="263" text-anchor="middle">SPARQL endpoints · RDF-over-HTTP</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="8.5"
+        fill="#2a8a50" x="110" y="274" text-anchor="middle">federated across the Web</text>
 </svg>

@@ -1,53 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="293" height="193" viewBox="0 0 293 193" role="img" aria-label="Language tooling composability diagram">
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="210" viewBox="0 0 360 210"
+     role="img" aria-label="Language tooling composability: rule modules compose into Traqula Builder outputs">
   <defs>
-    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#005eae"/>
     </marker>
+    <linearGradient id="builder-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a6fba"/>
+      <stop offset="100%" stop-color="#005eae"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-15%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#00000030"/>
+    </filter>
   </defs>
 
-  <!-- SPARQL 1.1 — white fill, blue border -->
-  <rect x="8" y="10" width="78" height="36" rx="8" fill="white" stroke="#005eae" stroke-width="3.5"/>
-  <text font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#003f76" x="47" y="26" text-anchor="middle">SPARQL 1.1</text>
-  <text font-family="Inter,Arial,sans-serif" font-size="9" fill="#003f76" x="47" y="39" text-anchor="middle">base rules</text>
+  <!-- ── Row label: Inputs ── -->
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="8" font-weight="700"
+        fill="#546a80" letter-spacing="0.06em" text-anchor="middle"
+        x="180" y="7" text-decoration="none">RULE MODULES</text>
 
-  <!-- +SPARQL 1.2 — amber fill/border -->
-  <rect x="107.5" y="10" width="78" height="36" rx="8" fill="#fff7ea" stroke="#fbba64" stroke-width="3.5"/>
-  <text font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#8a5a11" x="146.5" y="26" text-anchor="middle">+SPARQL 1.2</text>
-  <text font-family="Inter,Arial,sans-serif" font-size="9" fill="#8a5a11" x="146.5" y="39" text-anchor="middle">26 new rules</text>
+  <!-- ── Input: SPARQL 1.1 ── -->
+  <rect x="5" y="12" width="95" height="44" rx="8"
+        fill="white" stroke="#005eae" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="5" y="12" width="95" height="9" rx="8" fill="#e8f2fb"/>
+  <rect x="5" y="17" width="95" height="4" fill="#e8f2fb"/>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="11" font-weight="800"
+        fill="#003d7a" x="52.5" y="27" text-anchor="middle">SPARQL 1.1</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="9"
+        fill="#546a80" x="52.5" y="40" text-anchor="middle">base grammar</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="9"
+        fill="#546a80" x="52.5" y="51" text-anchor="middle">rules &amp; algebra</text>
 
-  <!-- +Extensions — amber fill/border -->
-  <rect x="207" y="10" width="78" height="36" rx="8" fill="#fff7ea" stroke="#fbba64" stroke-width="3.5"/>
-  <text font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#8a5a11" x="246" y="26" text-anchor="middle">+Extensions</text>
-  <text font-family="Inter,Arial,sans-serif" font-size="9" fill="#8a5a11" x="246" y="39" text-anchor="middle">ADJUST · LATERAL</text>
+  <!-- ── Input: SPARQL 1.2 Δ ── -->
+  <rect x="132.5" y="12" width="95" height="44" rx="8"
+        fill="#fff7ea" stroke="#fbba64" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="132.5" y="12" width="95" height="9" rx="8" fill="#ffe5b0"/>
+  <rect x="132.5" y="17" width="95" height="4" fill="#ffe5b0"/>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="11" font-weight="800"
+        fill="#7a4a00" x="180" y="27" text-anchor="middle">SPARQL 1.2 Δ</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="9"
+        fill="#b86d00" x="180" y="40" text-anchor="middle">26 incremental</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="9"
+        fill="#b86d00" x="180" y="51" text-anchor="middle">rule changes</text>
 
-  <!-- Converging arrows to Traqula Builder -->
-  <line x1="47" y1="46" x2="90" y2="72" stroke="#005eae" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <line x1="146.5" y1="46" x2="146.5" y2="72" stroke="#005eae" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <line x1="246" y1="46" x2="202" y2="72" stroke="#005eae" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <!-- ── Input: Extensions ── -->
+  <rect x="260" y="12" width="95" height="44" rx="8"
+        fill="#fff7ea" stroke="#fbba64" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="260" y="12" width="95" height="9" rx="8" fill="#ffe5b0"/>
+  <rect x="260" y="17" width="95" height="4" fill="#ffe5b0"/>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="11" font-weight="800"
+        fill="#7a4a00" x="307.5" y="27" text-anchor="middle">Extensions</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="9"
+        fill="#b86d00" x="307.5" y="40" text-anchor="middle">ADJUST</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="9"
+        fill="#b86d00" x="307.5" y="51" text-anchor="middle">LATERAL join</text>
 
-  <!-- Traqula Builder box -->
-  <rect x="47" y="72" width="199" height="44" rx="12" fill="#e8f2fb" stroke="#005eae" stroke-width="4"/>
-  <text font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" fill="#003f76" x="146.5" y="91" text-anchor="middle">Traqula Builder</text>
-  <text font-family="Inter,Arial,sans-serif" font-size="9" fill="#003f76" x="146.5" y="107" text-anchor="middle">name-based rule lookup &amp; composition</text>
+  <!-- ── Converging curves to Traqula Builder ── -->
+  <path d="M 52.5 56 C 52.5 70 115 72 115 80"
+        stroke="#005eae" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M 180 56 L 180 80"
+        stroke="#005eae" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M 307.5 56 C 307.5 70 245 72 245 80"
+        stroke="#005eae" stroke-width="2" fill="none" marker-end="url(#arr)"/>
 
-  <!-- Diverging arrows to output boxes -->
-  <line x1="93" y1="116" x2="65" y2="142" stroke="#005eae" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <line x1="146.5" y1="116" x2="146.5" y2="142" stroke="#005eae" stroke-width="2.5" marker-end="url(#arrow)"/>
-  <line x1="200" y1="116" x2="228" y2="142" stroke="#005eae" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <!-- ── Traqula Builder (centre) ── -->
+  <rect x="55" y="80" width="250" height="52" rx="10"
+        fill="url(#builder-g)" stroke="#003d7a" stroke-width="2" filter="url(#shadow)"/>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="14" font-weight="900"
+        fill="white" x="180" y="101" text-anchor="middle">Traqula Builder</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="9"
+        fill="rgba(255,255,255,0.82)" x="180" y="116" text-anchor="middle">name-based rule composition &amp; lookup</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="8.5"
+        fill="rgba(255,255,255,0.65)" x="180" y="127" text-anchor="middle">composable · extensible · no forks</text>
 
-  <!-- Output: Parser -->
-  <rect x="10" y="142" width="82" height="38" rx="8" fill="white" stroke="#005eae" stroke-width="3"/>
-  <text font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#003f76" x="51" y="158" text-anchor="middle">Parser</text>
-  <text font-family="Inter,Arial,sans-serif" font-size="9" fill="#003f76" x="51" y="171" text-anchor="middle">lexer + grammar</text>
+  <!-- ── Diverging curves to output boxes ── -->
+  <path d="M 115 132 C 115 144 52.5 146 52.5 154"
+        stroke="#005eae" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M 180 132 L 180 154"
+        stroke="#005eae" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+  <path d="M 245 132 C 245 144 307.5 146 307.5 154"
+        stroke="#005eae" stroke-width="2" fill="none" marker-end="url(#arr)"/>
 
-  <!-- Output: Generator -->
-  <rect x="107.5" y="142" width="78" height="38" rx="8" fill="white" stroke="#005eae" stroke-width="3"/>
-  <text font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#003f76" x="146.5" y="158" text-anchor="middle">Generator</text>
-  <text font-family="Inter,Arial,sans-serif" font-size="9" fill="#003f76" x="146.5" y="171" text-anchor="middle">AST → SPARQL text</text>
+  <!-- ── Row label: Outputs ── -->
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="8" font-weight="700"
+        fill="#546a80" letter-spacing="0.06em" text-anchor="middle"
+        x="180" y="152">GENERATED TOOLING</text>
 
-  <!-- Output: Transformers -->
-  <rect x="200" y="142" width="82" height="38" rx="8" fill="white" stroke="#005eae" stroke-width="3"/>
-  <text font-family="Inter,Arial,sans-serif" font-size="11" font-weight="700" fill="#003f76" x="241" y="158" text-anchor="middle">Transformers</text>
-  <text font-family="Inter,Arial,sans-serif" font-size="9" fill="#003f76" x="241" y="171" text-anchor="middle">toAst &amp; fromAst</text>
+  <!-- ── Output: Parser ── -->
+  <rect x="5" y="156" width="95" height="44" rx="8"
+        fill="white" stroke="#005eae" stroke-width="2" filter="url(#shadow)"/>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="11" font-weight="800"
+        fill="#003d7a" x="52.5" y="174" text-anchor="middle">Parser</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="9"
+        fill="#546a80" x="52.5" y="187" text-anchor="middle">lexer + grammar</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="8"
+        fill="#89b0cc" x="52.5" y="196" text-anchor="middle">SPARQL text → AST</text>
+
+  <!-- ── Output: Generator ── -->
+  <rect x="132.5" y="156" width="95" height="44" rx="8"
+        fill="white" stroke="#005eae" stroke-width="2" filter="url(#shadow)"/>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="11" font-weight="800"
+        fill="#003d7a" x="180" y="174" text-anchor="middle">Generator</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="9"
+        fill="#546a80" x="180" y="187" text-anchor="middle">AST → SPARQL text</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="8"
+        fill="#89b0cc" x="180" y="196" text-anchor="middle">serialise any variant</text>
+
+  <!-- ── Output: Transformers ── -->
+  <rect x="260" y="156" width="95" height="44" rx="8"
+        fill="white" stroke="#005eae" stroke-width="2" filter="url(#shadow)"/>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="11" font-weight="800"
+        fill="#003d7a" x="307.5" y="174" text-anchor="middle">Transformers</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="9"
+        fill="#546a80" x="307.5" y="187" text-anchor="middle">toAst · fromAst</text>
+  <text font-family="Inter Tight,Inter,sans-serif" font-size="8"
+        fill="#89b0cc" x="307.5" y="196" text-anchor="middle">algebra ↔ algebra</text>
 </svg>
