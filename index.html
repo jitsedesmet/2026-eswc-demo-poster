@@ -34,7 +34,7 @@
             </ul>
         </div>
 
-        <object id="system-img" data="/img/rdf-crdt-system.svg" type="image/svg+xml" role="img"
+        <object id="system-img" data="/img/traqula-federation.svg" type="image/svg+xml" role="img"
                 aria-label="Two agents communicating with two datastores.
                 The first datastore is exposed through an LDP interface while the second is exposed through a TPF interface.
                 The first agents communicates with both datastores while the second agent communicates only with the second datastore."
@@ -45,28 +45,12 @@
             Offline-First Collaborative RDF Editing using Web Standards
         </div>
 
-        <div id="rdf-representation">
-            <pre id="rdf-code"><code>&lt;&gt; a crdt:container .
-[] crdt:tags &lt;&lt;( &lt;&gt; a crdt:container )&gt;&gt; ;
-   <span style="color: var(--deep-green)">crdt:add "be2f95dd-..."^^crdt:uuid .</span>
-<span style="color: hsl(240, 100%, 50%)">:me a :human .</span>
-[] crdt:tags &lt;&lt;( :me a :human )&gt;&gt; ;
-   <span style="color: var(--deep-green)">crdt:add "be2f95dd-..."^^crdt:uuid .</span>
-   <span style="color: var(--deep-red)">crdt:remove "be2f95dd-..."^^crdt:uuid .</span>
-<span style="color: hsl(0, 0%, 50%)">[] crdt:tags &lt;&lt;( :me a :man )&gt;&gt; ;</span>
-   <span style="color: var(--deep-red)">crdt:remove
-"216ac011-...--2025-03-13T14:00:00Z"^^crdt:stamp-uuid .</span></code></pre>
-            <div id="rdf-explain-1">
-                <span class="title"><span class="icon">✔</span> <span>:me a :human</span> — present</span>
-                <span>Has add-tag not in tombstone set</span>
-                <span><span class="icon">↳</span> <span style="font-weight: bold">add-wins</span> over concurrent remove</span>
-            </div>
-            <div id="rdf-explain-2">
-                <span class="title"><span class="icon">❌</span> <span>:me a :man</span> — absent</span>
-                <span>No add-tags remain</span>
-                <span>stampUuid enables tombstone expiry</span>
-            </div>
-        </div>
+        <object id="rdf-representation" data="/img/traqula-representations.svg" type="image/svg+xml" role="img"
+                aria-label="Two agents communicating with two datastores.
+                The first datastore is exposed through an LDP interface while the second is exposed through a TPF interface.
+                The first agents communicates with both datastores while the second agent communicates only with the second datastore."
+        >
+        </object>
 
         <div id="notation">
             <div class="title">Notation</div>
@@ -91,7 +75,7 @@
             </ul>
         </div>
 
-        <object id="stack-img" role="img" data="/img/rdf-crdt-stack.svg" type="image/svg+xml"
+        <object id="stack-img" role="img" data="/img/traqula-modularity.svg" type="image/svg+xml"
                 aria-label="Architectural stack of the approach.
              An agent (application/ user) communicates with a SPARQL engine using SPARQL.
              In turn, the engine, which just supports standard SPARQL queries and updates, communicates with its internal datastore.
@@ -123,9 +107,10 @@
                 <a href="mailto:Ruben.Taelman@ugent.be">Ruben.Taelman@ugent.be</a>
             </div>
 
-            <div style="margin: 0 0 0 auto; display: flex; flex-direction: column; gap: 0.1em; align-items: center;">
-                <div>Paper:</div>
-                <a style="font-size: 0.8em; text-align: center" href="https://2026-eswc-demo.jitsedesmet.be/">
+            <div style="margin: 0 0 0 auto; display: flex; flex-direction: column; gap: 0.1em; align-items: flex-end;">
+                <div style="font-weight: bold">Paper</div>
+                <a style="font-size: 0.8em; text-align: right"
+                   href="https://2026-eswc-demo.jitsedesmet.be/">
                     2026-eswc-demo.<br>jitsedesmet.be</a>
             </div>
             <a style="height: 80%; margin: 0 0 0 0.5em; padding: 0;"
@@ -134,7 +119,7 @@
             </a>
 
             <img alt="logo fwo" class="logo" style="margin: 0 0 0 auto" height="30%" src="img/logos/logo-fwo-white.svg">
-            <img alt="logo ugent" class="logo" height="75%" src="img/logos/logo-ugent-white.svg">
+            <img style="margin-right: 0" alt="logo ugent" class="logo" height="75%" src="img/logos/logo-ugent-white.svg">
             <img alt="logo imec" style="margin: 0" class="logo" height="50%" src="img/logos/logo-imec-white.svg">
         </footer>
     </div>
