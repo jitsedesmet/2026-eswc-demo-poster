@@ -47,7 +47,7 @@ body {
   margin: 0;
   overflow: hidden;
   box-sizing: border-box;
-  aspect-ratio: $total-width / $total-height;
+  aspect-ratio: calc($total-width / $total-height);
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   display: grid;
@@ -195,6 +195,10 @@ header .sub {
     .title {
       font-weight: bold;
       font-size: 1.2rem;
+      line-height: 2rem;
+    }
+    .body {
+      margin: auto 0 1rem 0;
     }
   }
 }
@@ -220,18 +224,30 @@ header .sub {
     font-weight: bold;
     margin: 0.5em;
   }
-  #npm-package {
-    text-indent: 1rem hanging;
-  }
   ul {
     margin: 0;
   }
+  li {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    align-items: flex-start;
+    :first-child {
+      margin: 0 0.5rem 0 0;
+      width: 2rem;
+    }
+  }
   li, #conclusion li::marker {
     margin: 0.5em 1rem;
-    text-indent: 1rem hanging;
   }
   #comunica {
-    height: 0.8em;
+    height: 1rem;
+    width: auto;
+  }
+  #npm {
+    height: 0.8rem;
+    width: auto;
+    transform: translate(0, 0.3rem);
   }
 }
 
