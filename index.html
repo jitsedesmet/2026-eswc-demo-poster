@@ -26,15 +26,15 @@
         </header>
 
         <div id="requirements">
-            <div class="title">Requirements</div>
             <ul>
-                <li>Interact with shared Knowledge Graphs and decentralized data ecosystems through SPARQL</li>
-                <li>Serving CRDT-aware and non-aware clients</li>
-                <li>Heterogeneous interfaces supported by minimizing requirements</li>
+                <li>SPARQL is not one language — federation requires bridging</li>
+                <li>Structured languages benefit from tools like linters and reformatters</li>
+                <li>Tooling maintenance supporting many versions is tedious</li>
+
             </ul>
         </div>
 
-        <object id="system-img" data="/img/traqula-federation.svg" type="image/svg+xml" role="img"
+        <object id="federation-img" data="/img/traqula-federation.svg" type="image/svg+xml" role="img"
                 aria-label="Two agents communicating with two datastores.
                 The first datastore is exposed through an LDP interface while the second is exposed through a TPF interface.
                 The first agents communicates with both datastores while the second agent communicates only with the second datastore."
@@ -42,40 +42,30 @@
         </object>
 
         <div id="take-home">
-            Offline-First Collaborative RDF Editing using Web Standards
+            Modular SPARQL tooling enables maintainable,<br> rapid experimentation and support of heterogeneous sources
         </div>
 
-        <object id="rdf-representation" data="/img/traqula-representations.svg" type="image/svg+xml" role="img"
+        <object id="ast-representations" data="/img/traqula-representations.svg" type="image/svg+xml" role="img"
                 aria-label="Two agents communicating with two datastores.
                 The first datastore is exposed through an LDP interface while the second is exposed through a TPF interface.
                 The first agents communicates with both datastores while the second agent communicates only with the second datastore."
         >
         </object>
 
-        <div id="notation">
-            <div class="title">Notation</div>
-            <ul>
-                <li>RDF 1.2 native reification</li>
-                <li>NTP-bound optimize
-                    <ul>
-                        <li>Drop old & redundant tags</li>
-                        <li>Drop old tombstones</li>
-                    </ul>
-                </li>
-                <li>NTP max pairwise 2000s drift</li>
-            </ul>
-        </div>
+        <a id="link-demo" class="pure" href="https://compose-parser-engine.demo.jitsedesmet.be/">
+            <div class="text">
+                <span class="title">Try Live!</span>
+                <span>
+                    compose-parser-engine<br>
+                    .demo<br>
+                    .jitsedesmet.be
+                </span>
+            </div>
+            <img
+                 src="img/qr-compose-demo-black.svg">
+        </a>
 
-        <div id="architecture">
-            <div class="title">Architecture</div>
-            <ul>
-                <li>RESTful state based interactions</li>
-                <li>ETAG preventing mid flight collision</li>
-                <li>Atomicity through self confinement</li>
-            </ul>
-        </div>
-
-        <object id="stack-img" role="img" data="/img/traqula-modularity.svg" type="image/svg+xml"
+        <object id="architecture" role="img" data="/img/traqula-modularity.svg" type="image/svg+xml"
                 aria-label="Architectural stack of the approach.
              An agent (application/ user) communicates with a SPARQL engine using SPARQL.
              In turn, the engine, which just supports standard SPARQL queries and updates, communicates with its internal datastore.
@@ -85,19 +75,21 @@
         </object>
 
         <div id="conclusion">
-            <div class="title">Conclusion & <br>Future Work</div>
+            <div class="title">Conclusion & Future Work</div>
             <ul style="list-style: '';">
-                <li><img src="/img/logos/npm.svg" style="height: 0.6em"/>
-                    <a style="color: var(--color-sec)" href="https://www.npmjs.com/package/orset-rdf-store">
-                        orset-rdf-store
-                    </a></li>
-                <li><span class="icon" style="font-size: 0.8em; font-weight: 300">✔</span> Abstracted to
-                    <a href="https://www.npmjs.com/package/@rdfjs/types">RDF/JS Types</a>
-                    <a href="https://github.com/rdfjs/types/blob/c635435724076301e2b451fb25d7458ad82dc322/stream.d.ts#L82">Store</a>
-                    interface
+                <li><span class="icon">🏗</span>
+                    Builder Based Dependency injection
                 </li>
-                <li>Try yourself in <img id="comunica" alt="Comunica" src="img/logos/comunica-word.svg"></li>
-                <li><span class="icon">🔬</span> Need for Constraint-Aware Merge</li>
+                <li id="npm-package" style="font-size: 1em"><img src="/img/logos/npm.svg" style="height: 0.6em"/>
+                    <a href="https://www.npmjs.com/package/@traqula/parser-sparql-1-2">
+                        Available @traqula/<br>parser-sparql-1-2
+                    </a></li>
+                <li>
+                    <span class="icon" style="font-size: 0.8em; font-weight: 300">✔</span>MIT licenced, on GitHub
+                </li>
+                <li><span class="icon">⚙</span>Integrated and tested within <img id="comunica" alt="Comunica" src="img/logos/comunica-word.svg"></li>
+                <li><span class="icon">☔</span>100% coverage
+                </li>
             </ul>
         </div>
 
