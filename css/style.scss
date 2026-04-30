@@ -156,7 +156,7 @@ header .sub {
   grid-column: 1 / -1;
   grid-row: 11 / span 2;
   text-align: center;
-  font-size: var(--size-big);
+  font-size: calc(var(--size-big) * 0.9);
   background: var(--color-prim-light);
   font-weight: bold;
   border-radius: 0.25em;
