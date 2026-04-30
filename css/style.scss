@@ -9,6 +9,7 @@ $cel-width: calc(($total-width - (2*$paper-padding)) / $col-count);
 $cel-height: calc(($total-height - (2*$paper-padding)) / $row-count);
 
 body {
+  color-scheme: light only;
   position: absolute;
   top: 50%;
   left: 50%;
