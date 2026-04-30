@@ -105,8 +105,8 @@ header {
   flex-direction: row;
   font-weight: bold;
   background: var(--color-prim);
-  font-size: var(--size-huge);
-  line-height: 0.8em;
+  font-size: calc(var(--size-huge)*1.3);
+  line-height: 1.1em;
   text-align: center;
   padding: 0.5em;
   color: var(--color-ter);
